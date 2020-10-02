@@ -1,8 +1,8 @@
 [ldap]
-type = activedirectory
+type = openldap
 uri = ldaps://ldap.example.org:636/
 base = dc=example,dc=org
-binduser = DOMAIN\ldapuser
+binduser = uid=ldapbinduser,cn=users,cn=accounts,dc=ipa,dc=example,dc=com
 bindpass = ldappass
 groups = sysadmins,other_group_with_access
 media = mail
@@ -19,7 +19,7 @@ userattribute = sAMAccountName
 type = posix
 filtergroup = (&(objectClass=posixGroup)(cn=%s))
 filteruser = (&(objectClass=posixAccount)(uid=%s))
-groupattribute = memberUid
+groupattribute = member
 userattribute = uid
 
 [zabbix]
